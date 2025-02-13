@@ -1,0 +1,1137 @@
+/*  all project code                 */
+
+
+
+Private Sub ComboBox1_Change()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+Me.TextBox5.Value = "Reg-" & Me.TextBox1.Value & Left(Me.ComboBox1, 1)
+End Sub
+
+Private Sub ComboBox2_Change()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+For stdcheck = 3 To lastrow
+If Me.ComboBox2.Value = sht.Range("ag" & stdcheck).Value Then
+Me.TextBox29.Value = sht.Range("i" & stdcheck).Value
+Me.TextBox30.Value = sht.Range("q" & stdcheck).Value
+Me.TextBox31.Value = sht.Range("p" & stdcheck).Value
+
+Me.ComboBox1.Value = sht.Range("d" & stdcheck).Value
+For Add = 1 To 28
+Me("textbox" & Add).Value = sht.Cells(stdcheck, Add + 4).Value
+Next Add
+End If
+Next stdcheck
+
+On Error Resume Next
+Me.Image4.Picture = LoadPicture("C:\School Manager3\Student Pics3" & TextBox5.Text & ".jpg")
+End Sub
+
+Private Sub ComboBox3_Change()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+For stdcheck = 3 To lastrow
+If Me.ComboBox3.Value = sht.Range("ag" & stdcheck).Value Then
+Me.TextBox262.Value = sht.Range("i" & stdcheck).Value
+Me.TextBox263.Value = sht.Range("q" & stdcheck).Value
+Me.TextBox264.Value = sht.Range("p" & stdcheck).Value
+
+'Me.ComboBox1.Value = sht.Range("d" & stdcheck).Value
+'For Add = 1 To 28
+'Me("textbox" & Add).Value = sht.Cells(stdcheck, Add + 4).Value
+'Next Add
+'End If
+'Next stdcheck
+End If
+Next stdcheck
+
+On Error Resume Next
+Me.Image4.Picture = LoadPicture("C:\School Manager3\Student Pics3" & TextBox5.Text & ".jpg")
+End Sub
+
+Private Sub ComboBox4_Change()
+Dim sht As Worksheet
+Set sht = Sheets("exams")
+
+'for primary
+If Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Year-I" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Year-II" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Test No.1" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Test No.2" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Test No.3" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Quiz No.1" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Quiz No.2" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Quiz No.3" Then
+
+Me.Label203.Caption = sht.Range("I4").Value
+Me.Label206.Caption = sht.Range("I5").Value
+Me.Label208.Caption = sht.Range("I6").Value
+Me.Label209.Caption = sht.Range("I7").Value
+Me.Label210.Caption = sht.Range("I8").Value
+Me.Label211.Caption = sht.Range("I9").Value
+Me.Label212.Caption = sht.Range("I10").Value
+Me.Label213.Caption = sht.Range("I11").Value
+
+Me.Label215.Caption = sht.Range("J4").Value
+Me.Label216.Caption = sht.Range("J5").Value
+Me.Label217.Caption = sht.Range("J6").Value
+Me.Label218.Caption = sht.Range("J7").Value
+Me.Label219.Caption = sht.Range("J8").Value
+Me.Label220.Caption = sht.Range("J9").Value
+Me.Label221.Caption = sht.Range("J10").Value
+Me.Label222.Caption = sht.Range("J11").Value
+Me.Label223.Caption = sht.Range("J12").Value
+
+Me.Label224.Caption = 100
+Me.Label225.Caption = 100
+Me.Label226.Caption = 100
+Me.Label227.Caption = 100
+Me.Label228.Caption = 100
+Me.Label229.Caption = 100
+Me.Label230.Caption = 100
+Me.Label231.Caption = 100
+Me.Label232.Caption = 100
+End If
+
+
+'for middle
+If Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Year-I" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Year-II" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Test No.1" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Test No.2" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Test No.3" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Quiz No.1" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Quiz No.2" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Quiz No.3" Then
+
+Me.Label203.Caption = sht.Range("K4").Value
+Me.Label206.Caption = sht.Range("K5").Value
+Me.Label208.Caption = sht.Range("K6").Value
+Me.Label209.Caption = sht.Range("K7").Value
+Me.Label210.Caption = sht.Range("K8").Value
+Me.Label211.Caption = sht.Range("K9").Value
+Me.Label212.Caption = sht.Range("K10").Value
+Me.Label213.Caption = sht.Range("K11").Value
+
+Me.Label215.Caption = sht.Range("L4").Value
+Me.Label216.Caption = sht.Range("L5").Value
+Me.Label217.Caption = sht.Range("L6").Value
+Me.Label218.Caption = sht.Range("L7").Value
+Me.Label219.Caption = sht.Range("L8").Value
+Me.Label220.Caption = sht.Range("L9").Value
+Me.Label221.Caption = sht.Range("L10").Value
+Me.Label222.Caption = sht.Range("L11").Value
+Me.Label223.Caption = sht.Range("L12").Value
+
+Me.Label224.Caption = 100
+Me.Label225.Caption = 100
+Me.Label226.Caption = 100
+Me.Label227.Caption = 100
+Me.Label228.Caption = 100
+Me.Label229.Caption = 100
+Me.Label230.Caption = 100
+Me.Label231.Caption = 100
+Me.Label232.Caption = 100
+End If
+
+
+
+'for matric
+If Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Year-I" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Year-II" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Test No.1" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Test No.2" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Test No.3" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Quiz No.1" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Quiz No.2" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Quiz No.3" Then
+
+Me.Label203.Caption = sht.Range("G4").Value
+Me.Label206.Caption = sht.Range("G5").Value
+Me.Label208.Caption = sht.Range("G6").Value
+Me.Label209.Caption = sht.Range("G7").Value
+Me.Label210.Caption = sht.Range("G8").Value
+Me.Label211.Caption = sht.Range("G9").Value
+Me.Label212.Caption = sht.Range("G10").Value
+Me.Label213.Caption = sht.Range("G11").Value
+
+Me.Label215.Caption = sht.Range("H4").Value
+Me.Label216.Caption = sht.Range("H5").Value
+Me.Label217.Caption = sht.Range("H6").Value
+Me.Label218.Caption = sht.Range("H7").Value
+Me.Label219.Caption = sht.Range("H8").Value
+Me.Label220.Caption = sht.Range("H9").Value
+Me.Label221.Caption = sht.Range("H10").Value
+Me.Label222.Caption = sht.Range("H11").Value
+Me.Label223.Caption = sht.Range("H12").Value
+
+Me.Label224.Caption = 100
+Me.Label225.Caption = 100
+Me.Label226.Caption = 100
+Me.Label227.Caption = 100
+Me.Label228.Caption = 100
+Me.Label229.Caption = 100
+Me.Label230.Caption = 100
+Me.Label231.Caption = 100
+Me.Label232.Caption = 100
+End If
+End Sub
+
+Private Sub ComboBox5_Change()
+Dim sht As Worksheet
+Set sht = Sheets("exams")
+
+'for primary
+If Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Year-I" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Year-II" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Test No.1" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Test No.2" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Test No.3" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Quiz No.1" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Quiz No.2" Or _
+Me.ComboBox4.Value = "Primary" And Me.ComboBox5.Value = "Quiz No.3" Then
+
+Me.Label203.Caption = sht.Range("I4").Value
+Me.Label206.Caption = sht.Range("I5").Value
+Me.Label208.Caption = sht.Range("I6").Value
+Me.Label209.Caption = sht.Range("I7").Value
+Me.Label210.Caption = sht.Range("I8").Value
+Me.Label211.Caption = sht.Range("I9").Value
+Me.Label212.Caption = sht.Range("I10").Value
+Me.Label213.Caption = sht.Range("I11").Value
+
+Me.Label215.Caption = sht.Range("J4").Value
+Me.Label216.Caption = sht.Range("J5").Value
+Me.Label217.Caption = sht.Range("J6").Value
+Me.Label218.Caption = sht.Range("J7").Value
+Me.Label219.Caption = sht.Range("J8").Value
+Me.Label220.Caption = sht.Range("J9").Value
+Me.Label221.Caption = sht.Range("J10").Value
+Me.Label222.Caption = sht.Range("J11").Value
+Me.Label223.Caption = sht.Range("J12").Value
+
+Me.Label224.Caption = 100
+Me.Label225.Caption = 100
+Me.Label226.Caption = 100
+Me.Label227.Caption = 100
+Me.Label228.Caption = 100
+Me.Label229.Caption = 100
+Me.Label230.Caption = 100
+Me.Label231.Caption = 100
+Me.Label232.Caption = 100
+End If
+
+
+'for middle
+If Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Year-I" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Year-II" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Test No.1" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Test No.2" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Test No.3" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Quiz No.1" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Quiz No.2" Or _
+Me.ComboBox4.Value = "Middle" And Me.ComboBox5.Value = "Quiz No.3" Then
+
+Me.Label203.Caption = sht.Range("K4").Value
+Me.Label206.Caption = sht.Range("K5").Value
+Me.Label208.Caption = sht.Range("K6").Value
+Me.Label209.Caption = sht.Range("K7").Value
+Me.Label210.Caption = sht.Range("K8").Value
+Me.Label211.Caption = sht.Range("K9").Value
+Me.Label212.Caption = sht.Range("K10").Value
+Me.Label213.Caption = sht.Range("K11").Value
+
+Me.Label215.Caption = sht.Range("L4").Value
+Me.Label216.Caption = sht.Range("L5").Value
+Me.Label217.Caption = sht.Range("L6").Value
+Me.Label218.Caption = sht.Range("L7").Value
+Me.Label219.Caption = sht.Range("L8").Value
+Me.Label220.Caption = sht.Range("L9").Value
+Me.Label221.Caption = sht.Range("L10").Value
+Me.Label222.Caption = sht.Range("L11").Value
+Me.Label223.Caption = sht.Range("L12").Value
+
+Me.Label224.Caption = 100
+Me.Label225.Caption = 100
+Me.Label226.Caption = 100
+Me.Label227.Caption = 100
+Me.Label228.Caption = 100
+Me.Label229.Caption = 100
+Me.Label230.Caption = 100
+Me.Label231.Caption = 100
+Me.Label232.Caption = 100
+End If
+
+
+
+'for matric
+If Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Year-I" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Year-II" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Test No.1" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Test No.2" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Test No.3" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Quiz No.1" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Quiz No.2" Or _
+Me.ComboBox4.Value = "Matric" And Me.ComboBox5.Value = "Quiz No.3" Then
+
+Me.Label203.Caption = sht.Range("G4").Value
+Me.Label206.Caption = sht.Range("G5").Value
+Me.Label208.Caption = sht.Range("G6").Value
+Me.Label209.Caption = sht.Range("G7").Value
+Me.Label210.Caption = sht.Range("G8").Value
+Me.Label211.Caption = sht.Range("G9").Value
+Me.Label212.Caption = sht.Range("G10").Value
+Me.Label213.Caption = sht.Range("G11").Value
+
+Me.Label215.Caption = sht.Range("H4").Value
+Me.Label216.Caption = sht.Range("H5").Value
+Me.Label217.Caption = sht.Range("H6").Value
+Me.Label218.Caption = sht.Range("H7").Value
+Me.Label219.Caption = sht.Range("H8").Value
+Me.Label220.Caption = sht.Range("H9").Value
+Me.Label221.Caption = sht.Range("H10").Value
+Me.Label222.Caption = sht.Range("H11").Value
+Me.Label223.Caption = sht.Range("H12").Value
+
+Me.Label224.Caption = 100
+Me.Label225.Caption = 100
+Me.Label226.Caption = 100
+Me.Label227.Caption = 100
+Me.Label228.Caption = 100
+Me.Label229.Caption = 100
+Me.Label230.Caption = 100
+Me.Label231.Caption = 100
+Me.Label232.Caption = 100
+End If
+End Sub
+
+Private Sub Image2_BeforeDragOver(ByVal Cancel As MSForms.ReturnBoolean, ByVal Data As MSForms.DataObject, ByVal X As Single, ByVal Y As Single, ByVal DragState As MSForms.fmDragState, ByVal Effect As MSForms.ReturnEffect, ByVal Shift As Integer)
+
+End Sub
+
+Private Sub Image3_BeforeDragOver(ByVal Cancel As MSForms.ReturnBoolean, ByVal Data As MSForms.DataObject, ByVal X As Single, ByVal Y As Single, ByVal DragState As MSForms.fmDragState, ByVal Effect As MSForms.ReturnEffect, ByVal Shift As Integer)
+
+End Sub
+
+Private Sub Image5_BeforeDragOver(ByVal Cancel As MSForms.ReturnBoolean, ByVal Data As MSForms.DataObject, ByVal X As Single, ByVal Y As Single, ByVal DragState As MSForms.fmDragState, ByVal Effect As MSForms.ReturnEffect, ByVal Shift As Integer)
+
+End Sub
+
+Private Sub Image6_BeforeDragOver(ByVal Cancel As MSForms.ReturnBoolean, ByVal Data As MSForms.DataObject, ByVal X As Single, ByVal Y As Single, ByVal DragState As MSForms.fmDragState, ByVal Effect As MSForms.ReturnEffect, ByVal Shift As Integer)
+
+End Sub
+
+Private Sub Image8_BeforeDragOver(ByVal Cancel As MSForms.ReturnBoolean, ByVal Data As MSForms.DataObject, ByVal X As Single, ByVal Y As Single, ByVal DragState As MSForms.fmDragState, ByVal Effect As MSForms.ReturnEffect, ByVal Shift As Integer)
+
+End Sub
+
+Private Sub Label1_Click()
+
+End Sub
+
+Private Sub Label10_Click()
+'clear
+For clr = 1 To 28
+Me("TextBox" & clr).Value = ""
+Next clr
+Me.ComboBox1.Value = ""
+Me.ComboBox2.Value = ""
+Me.TextBox29.Value = ""
+Me.TextBox30.Value = ""
+Me.TextBox31.Value = ""
+End Sub
+
+Private Sub Label2_Click()
+page2.Show
+End Sub
+
+Private Sub Label203_Click()
+
+End Sub
+
+Private Sub Label210_Click()
+
+End Sub
+
+Private Sub Label222_Click()
+
+End Sub
+
+Private Sub Label223_Click()
+
+End Sub
+
+Private Sub Label226_Click()
+
+End Sub
+
+Private Sub Label233_Click()
+
+End Sub
+
+Private Sub Label242_Click()
+
+End Sub
+
+Private Sub Label250_Click()
+
+End Sub
+
+Private Sub Label253_Click()
+
+End Sub
+
+Private Sub Label261_Click()
+''validation
+If Me.ComboBox3.Value = "" Or Me.ComboBox4.Value = "" Or _
+Me.ComboBox5.Value = "" Or Me.TextBox253.Value = "" Or _
+Me.TextBox254.Value = "" Or Me.TextBox255.Value = "" Or _
+Me.TextBox256.Value = "" Or Me.TextBox257.Value = "" Or _
+Me.TextBox258.Value = "" Or Me.TextBox259.Value = "" Or _
+Me.TextBox260.Value = "" Or Me.TextBox261.Value = "" Then
+
+MsgBox "please enter student/enter marks", vbInformation
+Exit Sub
+End If
+
+lastrow = Application.WorksheetFunction.CountA(Sheets("Middle").Range("D:D")) + 3
+
+For findstd = 4 To lastrow
+If Me.TextBox262.Text = Sheets("Middle").Range("I" & findstd) Then
+If Me.ComboBox4.Value = "Middle" Then
+If Me.ComboBox5.Value = "Year-I" Then
+Sheets("Middle").Range("J" & findstd).Value = Me.TextBox253.Value
+Sheets("Middle").Range("K" & findstd).Value = Me.TextBox254.Value
+Sheets("Middle").Range("L" & findstd).Value = Me.TextBox255.Value
+Sheets("Middle").Range("M" & findstd).Value = Me.TextBox256.Value
+Sheets("Middle").Range("N" & findstd).Value = Me.TextBox257.Value
+Sheets("Middle").Range("P" & findstd).Value = Me.TextBox258.Value
+Sheets("Middle").Range("Q" & findstd).Value = Me.TextBox259.Value
+Sheets("Middle").Range("R" & findstd).Value = Me.TextBox259.Value
+Sheets("Middle").Range("S" & findstd).Value = Me.TextBox259.Value
+End If
+End If
+End If
+Next findstd
+End Sub
+
+Private Sub Label264_Click()
+'validation
+If Me.TextBox262.Value = "" Then
+MsgBox "please select student", vbInformation
+Exit Sub
+End If
+On Error Resume Next
+'window ,img select ,show
+Application.FileDialog(msoFileDialogFilePicker).AllowMultiSelect = False
+selectedpic = Application.FileDialog(msoFileDialogFilePicker).Show
+
+If selectedpic <> 0 Then
+Image4.Picture = LoadPicture(Application.FileDialog(msoFileDialogFilePicker).SelectedItems(1))
+
+'another way
+'filelocation=Application.FileDialog(msoFileDialogFilePicker).SelectedItems(1)
+'Image4.Picture = LoadPicture(filelocation)
+End If
+On Error Resume Next
+MkDir "C:\School Manager3"
+MkDir "C:\School Manager3\Student Pics3\"
+End Sub
+
+Private Sub Label266_Click()
+Image7.Picture = LoadPicture("")
+End Sub
+
+Private Sub Label3_Click()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+If Me.ComboBox1.Value = "" Or Me.TextBox1.Value = "" Or Me.TextBox3.Value = "" Or Me.TextBox4.Value = "" _
+Or Me.TextBox13.Value = "" Or Me.TextBox20.Value = "" Or Me.TextBox21.Value = "" Or Me.TextBox24.Value = "" _
+Or Me.TextBox25.Value = "" Or Me.TextBox28.Value = "" Then
+MsgBox "Please enter necessary details", vbInformation
+Exit Sub
+End If
+
+'duplicate
+For Duplicate = 4 To lastrow
+If Me.TextBox5.Text = sht.Range("I" & Duplicate).Value Then
+MsgBox "Already Exists", vbInformation
+Exit Sub
+End If
+Next Duplicate
+
+'serial no
+For sr = 4 To lastrow
+sht.Range("c" & sr).Value = sr - 3
+Next sr
+'add data
+sht.Range("d" & lastrow).Value = Me.ComboBox1.Value
+For Add = 1 To 28
+sht.Cells(lastrow, Add + 4).Value = Me("textbox" & Add).Value
+Next Add
+MsgBox "Data Saved", vbInformation
+
+sht.Range("ag" & lastrow).Value = Me.TextBox3.Value & " " & Me.TextBox4.Value
+
+
+'copy image to folder and rename it
+On Error Resume Next
+FileCopy fileLocation, "C:\School Manager3\Student Pics3" & TextBox5.Text & ".jpg"
+'FileCopy filelocation, "c:\school manager\student pics\" & Me.TextBox5.Text & ".jpg"
+MsgBox "data saved", vbInformation
+
+End Sub
+
+Private Sub Label4_Click()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+'delete
+For selectedrow = 4 To lastrow
+If Me.TextBox5.Text = sht.Range("I" & selectedrow).Value Then
+sht.Rows(selectedrow).Delete
+End If
+Next selectedrow
+MsgBox "data deleted", vbInformation
+
+'serial no
+For sr = 4 To lastrow - 2
+sht.Range("c" & sr).Value = sr - 3
+Next sr
+
+'clear
+For clr = 2 To 28
+Me("TextBox" & clr).Value = ""
+Next clr
+Me.ComboBox1.Value = ""
+Me.ComboBox2.Value = ""
+Me.TextBox29.Value = ""
+Me.TextBox30.Value = ""
+Me.TextBox31.Value = ""
+End Sub
+
+Private Sub Label5_Click()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+If Me.ComboBox1.Value = "" Or Me.TextBox1.Value = "" Or Me.TextBox3.Value = "" Or Me.TextBox4.Value = "" _
+Or Me.TextBox13.Value = "" Or Me.TextBox20.Value = "" Or Me.TextBox21.Value = "" Or Me.TextBox24.Value = "" _
+Or Me.TextBox25.Value = "" Or Me.TextBox28.Value = "" Then
+MsgBox "Please enter necessary details", vbInformation
+Exit Sub
+End If
+
+For selectedrow = 4 To lastrow
+If Me.TextBox5.Text = sht.Range("I" & selectedrow).Value Then
+'serial no
+For sr = 4 To lastrow - 1
+sht.Range("c" & sr).Value = sr - 3
+Next sr
+'add data
+sht.Range("d" & selectedrow).Value = Me.ComboBox1.Value
+For Add = 1 To 28
+sht.Cells(selectedrow, Add + 4).Value = Me("textbox" & Add).Value
+Next Add
+
+sht.Range("ag" & selectedrow).Value = Me.TextBox3.Value & " " & Me.TextBox4.Value
+End If
+Next selectedrow
+
+On Error Resume Next
+FileCopy fileLocation, "C:\School Manager3\Student Pics3\" & TextBox5.Text & ".jpg"
+'FileCopy filelocation, "c:\school manager\student pics\" & Me.TextBox5.Text & ".jpg"
+MsgBox "data saved", vbInformation
+MsgBox "data Updated", vbInformation
+
+
+
+'clear
+For clr = 2 To 28
+Me("TextBox" & clr).Value = ""
+Next clr
+Me.ComboBox1.Value = ""
+Me.ComboBox2.Value = ""
+Me.TextBox29.Value = ""
+Me.TextBox30.Value = ""
+Me.TextBox31.Value = ""
+End Sub
+
+Private Sub Label7_Click()
+'validation
+If Me.TextBox5.Value = "" Then
+MsgBox "please select student", vbInformation
+Exit Sub
+End If
+On Error Resume Next
+'window ,img select ,show
+Application.FileDialog(msoFileDialogFilePicker).AllowMultiSelect = False
+selectedpic = Application.FileDialog(msoFileDialogFilePicker).Show
+
+If selectedpic <> 0 Then
+Image4.Picture = LoadPicture(Application.FileDialog(msoFileDialogFilePicker).SelectedItems(1))
+
+'another way
+'filelocation=Application.FileDialog(msoFileDialogFilePicker).SelectedItems(1)
+'Image4.Picture = LoadPicture(filelocation)
+End If
+On Error Resume Next
+MkDir "C:\School Manager3"
+MkDir "C:\School Manager3\Student Pics3\"
+End Sub
+
+Private Sub Label8_Click()
+
+End Sub
+
+Private Sub Label9_Click()
+Image4.Picture = LoadPicture("")
+End Sub
+
+Private Sub MultiPage1_Change()
+
+End Sub
+
+Private Sub TextBox10_Change()
+
+End Sub
+
+Private Sub TextBox12_Change()
+
+End Sub
+
+Private Sub TextBox13_Change()
+
+End Sub
+
+Private Sub TextBox131_Change()
+
+End Sub
+
+Private Sub TextBox16_Change()
+
+End Sub
+
+Private Sub TextBox25_Change()
+
+End Sub
+
+Private Sub TextBox252_Change()
+
+End Sub
+
+Private Sub TextBox253_Change()
+'percentage
+Total = (Me.TextBox253.Value + 0)
+Me.Label233.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label242.Caption = "Pass"
+Else
+Me.Label242.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label251.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label251.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label251.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label251.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label251.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label251.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label251.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox254_Change()
+'percentage
+Total = (Me.TextBox254.Value + 0)
+Me.Label234.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label243.Caption = "Pass"
+Else
+Me.Label243.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label252.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label252.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label252.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label252.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label252.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label252.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label252.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox255_Change()
+'percentage
+Total = (Me.TextBox255.Value + 0)
+Me.Label235.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label244.Caption = "Pass"
+Else
+Me.Label244.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label253.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label253.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label253.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label253.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label253.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label253.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label253.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox256_Change()
+'percentage
+Total = (Me.TextBox256.Value + 0)
+Me.Label236.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label245.Caption = "Pass"
+Else
+Me.Label245.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label254.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label254.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label254.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label254.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label254.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label254.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label254.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox257_Change()
+'percentage
+Total = (Me.TextBox257.Value + 0)
+Me.Label237.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label246.Caption = "Pass"
+Else
+Me.Label246.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label255.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label255.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label255.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label255.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label255.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label255.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label255.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox258_Change()
+'percentage
+Total = (Me.TextBox258.Value + 0)
+Me.Label238.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label247.Caption = "Pass"
+Else
+Me.Label247.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label256.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label256.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label256.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label256.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label256.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label256.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label256.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox259_Change()
+'percentage
+Total = (Me.TextBox259.Value + 0)
+Me.Label239.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label248.Caption = "Pass"
+Else
+Me.Label248.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label257.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label257.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label257.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label257.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label257.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label257.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label257.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox260_Change()
+'percentage
+Total = (Me.TextBox260.Value + 0)
+Me.Label240.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label249.Caption = "Pass"
+Else
+Me.Label249.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label258.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label258.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label258.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label258.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label258.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label258.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label258.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox261_Change()
+'percentage
+Total = (Me.TextBox261.Value + 0)
+Me.Label241.Caption = Total / 100 * 100 & "%"
+
+'pass/fail
+If Total / 100 * 100 > 30 Then
+Me.Label250.Caption = "Pass"
+Else
+Me.Label250.Caption = "Fail"
+End If
+
+''Remarks
+If Total / 100 * 100 >= 0 Then
+Me.Label259.Caption = "Fail"
+
+If Total / 100 * 100 >= 30 Then
+Me.Label259.Caption = "Poor"
+
+If Total / 100 * 100 >= 40 Then
+Me.Label259.Caption = "Below Average"
+
+If Total / 100 * 100 >= 50 Then
+Me.Label259.Caption = "Average"
+
+If Total / 100 * 100 >= 60 Then
+Me.Label259.Caption = "Good"
+
+If Total / 100 * 100 >= 75 Then
+Me.Label259.Caption = "Very Good"
+
+If Total / 100 * 100 >= 90 Then
+Me.Label259.Caption = "Excellent"
+End If
+End If
+End If
+End If
+End If
+End If
+End If
+End Sub
+
+Private Sub TextBox262_Change()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+For stdcheck = 4 To lastrow
+If Me.TextBox29.Text = sht.Range("i" & stdcheck).Value Then
+Me.ComboBox2.Value = sht.Range("ag" & stdcheck).Value
+Me.TextBox30.Value = sht.Range("q" & stdcheck).Value
+Me.TextBox31.Value = sht.Range("p" & stdcheck).Value
+
+Me.ComboBox1.Value = sht.Range("d" & stdcheck).Value
+For Add = 1 To 28
+Me("textbox" & Add).Value = sht.Cells(stdcheck, Add + 4).Value
+Next Add
+End If
+Next stdcheck
+End Sub
+
+Private Sub TextBox266_Change()
+
+End Sub
+
+Private Sub TextBox269_Change()
+
+End Sub
+
+Private Sub TextBox27_Change()
+
+End Sub
+
+Private Sub TextBox36_Change()
+
+End Sub
+
+Private Sub TextBox33_Change()
+
+End Sub
+
+Private Sub TextBox288_Change()
+
+End Sub
+
+Private Sub TextBox29_AfterUpdate()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+For stdcheck = 4 To lastrow
+If Me.TextBox29.Text = sht.Range("i" & stdcheck).Value Then
+Me.ComboBox2.Value = sht.Range("ag" & stdcheck).Value
+Me.TextBox30.Value = sht.Range("q" & stdcheck).Value
+Me.TextBox31.Value = sht.Range("p" & stdcheck).Value
+
+Me.ComboBox1.Value = sht.Range("d" & stdcheck).Value
+For Add = 1 To 28
+Me("textbox" & Add).Value = sht.Cells(stdcheck, Add + 4).Value
+Next Add
+End If
+Next stdcheck
+End Sub
+
+Private Sub TextBox30_AfterUpdate()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+For stdcheck = 4 To lastrow
+If Me.TextBox30.Text = sht.Range("q" & stdcheck).Value Then
+Me.TextBox29.Value = sht.Range("i" & stdcheck).Value
+Me.ComboBox2.Value = sht.Range("ag" & stdcheck).Value
+Me.TextBox31.Value = sht.Range("p" & stdcheck).Value
+
+Me.ComboBox1.Value = sht.Range("d" & stdcheck).Value
+For Add = 1 To 28
+Me("textbox" & Add).Value = sht.Cells(stdcheck, Add + 4).Value
+Next Add
+End If
+Next stdcheck
+End Sub
+
+Private Sub TextBox31_AfterUpdate()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+For stdcheck = 4 To lastrow
+If Me.TextBox31.Text = sht.Range("p" & stdcheck).Value Then
+Me.TextBox29.Value = sht.Range("i" & stdcheck).Value
+Me.TextBox30.Value = sht.Range("q" & stdcheck).Value
+Me.ComboBox2.Value = sht.Range("ag" & stdcheck).Value
+
+Me.ComboBox1.Value = sht.Range("d" & stdcheck).Value
+For Add = 1 To 28
+Me("textbox" & Add).Value = sht.Cells(stdcheck, Add + 4).Value
+Next Add
+End If
+Next stdcheck
+End Sub
+
+Private Sub TextBox5_Change()
+Dim sht As Worksheet
+Set sht = Sheets("studentdb")
+lastrow = Application.WorksheetFunction.CountA(sht.Range("c:c")) + 3
+'use below line for search by id
+Me.TextBox5.Value = Me.TextBox29.Value
+
+'this below line is only for adding image
+'Me.TextBox5.Value = "Reg-" & TextBox1
+End Sub
+Private Sub UserForm_Click()
+
+End Sub
+
+Private Sub UserForm_Initialize()
+Me.ComboBox1.AddItem ""
+Me.ComboBox1.AddItem "Matric"
+Me.ComboBox1.AddItem "Middle"
+Me.ComboBox1.AddItem "Primary"
+Me.TextBox20.Value = Format(Date)
+Me.TextBox265.Value = Format(Date)
+
+Me.ComboBox4.AddItem ""
+Me.ComboBox4.AddItem "Matric"
+Me.ComboBox4.AddItem "Middle"
+Me.ComboBox4.AddItem "Primary"
+
+Me.ComboBox5.AddItem "Year-I"
+Me.ComboBox5.AddItem "Year-II"
+Me.ComboBox5.AddItem "Test No.1"
+Me.ComboBox5.AddItem "Test No.2"
+Me.ComboBox5.AddItem "Test No.3"
+Me.ComboBox5.AddItem "Quiz No.1"
+Me.ComboBox5.AddItem "Quiz No.2"
+Me.ComboBox5.AddItem "Quiz No.3"
+End Sub
+
